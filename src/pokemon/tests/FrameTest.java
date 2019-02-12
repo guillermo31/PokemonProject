@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pokemon.controller.PokedexController;
+import pokemon.controller.PokedexController;
 import pokemon.view.PokedexFrame;
 import pokemon.view.PokedexPanel;
 

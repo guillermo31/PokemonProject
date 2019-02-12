@@ -1,14 +1,14 @@
 package pokemon.view;
-import pokemon.controller.PokemonController;
+import pokemon.controller.PokedexController;
 import javax.swing.*;
 
 public class PokedexFrame extends JFrame
 {
-	private PokemonController appController;
+	private PokedexController appController;
 	private PokedexPanel appPanel;
 	
 	
-	public PokedexFrame(PokemonController appController)
+	public PokedexFrame(PokedexController appController)
 	{
 		super();
 		this.appController = appController;
