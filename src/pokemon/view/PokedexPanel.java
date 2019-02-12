@@ -42,7 +42,7 @@ public class PokedexPanel extends JPanel
 		attackLabel = new JLabel("attack");
 		imageLabel = new JLabel("pokemon");
 		changeButton = new JButton("change pokevalues");
-		pokedexDropdown = new JComboBox();
+		pokedexDropdown = new JComboBox<String>();
 		numberLabel = new JLabel("number");
 		nameLabel = new JLabel("name");
 		evolveLabel = new JLabel("evolution");
@@ -78,6 +78,12 @@ public class PokedexPanel extends JPanel
 		this.add(pokedexDropdown);
 		
 		
+	}
+	
+	private void setupDropdown()
+	{
+		DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(app.buildPokedexText());
+		pokedexDropdown.setModel(temp);
 	}
 	
 	private void setupLayout()
