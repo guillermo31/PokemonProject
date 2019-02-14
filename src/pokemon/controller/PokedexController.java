@@ -9,21 +9,37 @@ import pokemon.model.*;
 
 public class PokedexController 
 {
+	//data members
 	private ArrayList<Pokemon> pokemonList;
 	private PokedexFrame appFrame;
 	
+	//constructor 
 	public PokedexController()
 	{
 		pokemonList = new ArrayList<Pokemon>();
 		this.appFrame = new PokedexFrame(this);
 	}
+	
 	public void start()
 	{
 		
 	}
 	
 	
-	private void addPokemon()
+	
+	//getters
+	public ArrayList<Pokemon> getPokemonList()
+	{
+		return this.pokemonList;
+	}
+	public PokedexFrame getFrame()
+	{
+		return appFrame;
+	}
+	
+	
+	//methods 
+	public void addPokemon()
 	{
 		pokemonList.add(new Charmander(1342, "myCharmander"));
 		pokemonList.add(new Charmander(1311, "anotherCharmander"));
