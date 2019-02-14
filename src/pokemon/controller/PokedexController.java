@@ -22,6 +22,13 @@ public class PokedexController
 		
 	}
 	
+	
+	private void addPokemon()
+	{
+		pokemonList.add(new Charmander(1342, "myCharmander"));
+		pokemonList.add(new Charmander(1311, "anotherCharmander"));
+	}
+	
 	public void updatePokemon(int index, String[] data)
 	{
 		if(data.length == 5)
