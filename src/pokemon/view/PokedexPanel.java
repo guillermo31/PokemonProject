@@ -1,6 +1,7 @@
 package pokemon.view;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import pokemon.controller.PokedexController;
 
 
@@ -9,7 +10,7 @@ public class PokedexPanel extends JPanel
 	private PokedexController appController;
 	private SpringLayout appLayout;
 	private JButton changeButton;
-	private JComboBox pokedexDropdown;
+	private JComboBox<String> pokedexDropdown;
 	
 	private JTextField numberField;
 	private JTextField nameField;
@@ -43,7 +44,11 @@ public class PokedexPanel extends JPanel
 		attackField = new JTextField("0 ");
 		enhancementField = new JTextField("0");
 		attackLabel = new JLabel("attack");
-		imageLabel = new JLabel("pokemon", pokemonIcon, JLabel.CENTER);
+		imageLabel = new JLabel("pokemon", new ImageIcon(PokedexPanel.class.getResource("/pokemon/view/images/pikachu.png")), JLabel.CENTER);
+		appLayout.putConstraint(SpringLayout.NORTH, imageLabel, 35, SpringLayout.NORTH, enhancementField);
+		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 40, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, 188, SpringLayout.SOUTH, attackLabel);
+		appLayout.putConstraint(SpringLayout.EAST, imageLabel, -56, SpringLayout.EAST, numberField);
 		changeButton = new JButton("change pokevalues");
 		pokedexDropdown = new JComboBox<String>();
 		numberLabel = new JLabel("number");
@@ -59,13 +64,13 @@ public class PokedexPanel extends JPanel
 		setupLayout();
 		setupPanel();
 		setupListeners();
+		
 	}
 	
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(800, 600));
-		this.setBackground(Color.RED);
 		this.add(numberField);
 		this.add(nameField);
 		this.add(evolveField);
@@ -82,6 +87,8 @@ public class PokedexPanel extends JPanel
 		this.add(changeButton);
 		this.add(pokedexDropdown);
 		
+		this.add(imageLabel);
+		
 		imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
 		imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 		
@@ -90,9 +97,42 @@ public class PokedexPanel extends JPanel
 	
 	private void setupDropdown()
 	{
-		DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(app.buildPokedexText());
+		DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(appController.buildPokedexText());
 		pokedexDropdown.setModel(temp);
 	}
+	
+	
+	private void sendDataToController()
+	{
+		int index = pokedexDropdown.getSelectedIndex();
+		
+		if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()) )
+		{
+			String [] data = new String[5];
+			
+			appController.updatePokemon(index, data);
+		}
+		
+	}
+	
+	private void changeImageDisplay(String name)
+	{
+		String path = "/pokemon/view/images/";
+		String defaultName = "pikachu";
+		String extension = ".png";
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name.toLowerCase() + extension));
+			
+		}
+		catch(NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		imageLabel.setIcon(pokemonIcon);
+		repaint();
+	}
+	
 	
 	private void setupLayout()
 	{
@@ -128,7 +168,22 @@ public class PokedexPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		changeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				sendDataToController();
+			}
+		});
 		
+		pokedexDropdown.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				String name = pokedexDropdown.getSelectedItem().toString();
+				changeImageDisplay(name);
+			}
+		});
 	}
 	
 }

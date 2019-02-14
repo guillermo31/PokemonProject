@@ -1,6 +1,8 @@
 package pokemon.controller;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import pokemon.view.PokedexFrame;
 import pokemon.view.PokedexFrame;
 import pokemon.model.*;
@@ -42,5 +44,59 @@ public class PokedexController
 			names[i] = pokemonList.get(i).getName();
 		}
 		return names;
+	}
+	
+	public boolean isInt(String maybeInt)
+	{
+		boolean isValid = false;
+		
+		
+		try
+		{
+			Integer.parseInt(maybeInt);
+			isValid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "you should type an integer like 0348525");
+		}
+		
+		return isValid;
+	}
+	
+	public boolean isDouble(String maybeDouble)
+	{
+		boolean isValid = false;
+		
+		
+		try
+		{
+			Double.parseDouble(maybeDouble);
+			isValid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "you should type a double like 0.52542");
+		}
+		
+		return isValid;
+	}
+	
+	public boolean isBoolean(String maybeBool)
+	{
+		boolean isValid = false;
+		
+		
+		try
+		{
+			Boolean.parseBoolean(maybeBool);
+			isValid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "you should type a boolean like true or false");
+		}
+		
+		return isValid;
 	}
 }
