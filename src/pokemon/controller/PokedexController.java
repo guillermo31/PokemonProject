@@ -17,6 +17,7 @@ public class PokedexController
 	public PokedexController()
 	{
 		pokemonList = new ArrayList<Pokemon>();
+		addPokemon();
 		this.appFrame = new PokedexFrame(this);
 	}
 	
@@ -42,7 +43,10 @@ public class PokedexController
 	public void addPokemon()
 	{
 		pokemonList.add(new Charmander(1342, "myCharmander"));
-		pokemonList.add(new Charmander(1311, "anotherCharmander"));
+		pokemonList.add(new Bulbasaur(001, "aBulbasaur"));
+		pokemonList.add(new Pikachu(1223, "Pikachuchu"));
+		pokemonList.add(new Magikarp(123, "myMagikarp"));
+		pokemonList.add(new Squirtle(1233424, "mySquirtle"));
 	}
 	
 	public void updatePokemon(int index, String[] data)
