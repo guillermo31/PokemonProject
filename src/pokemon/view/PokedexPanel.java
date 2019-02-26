@@ -64,6 +64,7 @@ public class PokedexPanel extends JPanel
 		setupLayout();
 		setupPanel();
 		setupListeners();
+		setupDropdown();
 		
 	}
 	
@@ -110,6 +111,11 @@ public class PokedexPanel extends JPanel
 		{
 			String [] data = new String[5];
 			
+			data[0] = attackField.getText();
+			data[1] = enhancementField.getText();
+			data[2] = healthField.getText();
+			data[3] = evolveField.getText();
+			data[4] = nameField.getText();
 			appController.updatePokemon(index, data);
 		}
 		

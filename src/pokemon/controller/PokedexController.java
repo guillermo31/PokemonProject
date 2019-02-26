@@ -42,11 +42,11 @@ public class PokedexController
 	//methods 
 	public void addPokemon()
 	{
-		pokemonList.add(new Charmander(1342, "myCharmander"));
-		pokemonList.add(new Bulbasaur(001, "aBulbasaur"));
-		pokemonList.add(new Pikachu(1223, "Pikachuchu"));
-		pokemonList.add(new Magikarp(123, "myMagikarp"));
-		pokemonList.add(new Squirtle(1233424, "mySquirtle"));
+		pokemonList.add(new Charmander(1342, "charmander"));
+		pokemonList.add(new Bulbasaur(001, "bulbasaur"));
+		pokemonList.add(new Pikachu(1223, "pikachu"));
+		pokemonList.add(new Magikarp(123, "magikarp"));
+		pokemonList.add(new Squirtle(1233424, "squirtle"));
 	}
 	
 	public void updatePokemon(int index, String[] data)
