@@ -125,6 +125,20 @@ public class PokedexPanel extends JPanel
 		
 	}
 	
+	public void savePokedex()
+	{
+		try 
+		{
+			FileOutputStream saveStream = new FileOutputStream(saveFile);
+			ObjectOutputStream output = new ObjectOutputStream(saveStream);
+			output.writeObject(pokemonList);
+		}
+	}
+	public void loadPokedex()
+	{
+		
+	}
+	
 	private void changeImageDisplay(String name)
 	{
 		String path = "/pokemon/view/images/";
