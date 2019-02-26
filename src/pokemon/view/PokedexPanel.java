@@ -8,7 +8,6 @@ import java.io.*;
 
 public class PokedexPanel extends JPanel
 {
-	private String saveFile = "backup.pokemon";
 	private PokedexController appController;
 	private SpringLayout appLayout;
 	private JButton changeButton;
@@ -125,19 +124,7 @@ public class PokedexPanel extends JPanel
 		
 	}
 	
-	public void savePokedex()
-	{
-		try 
-		{
-			FileOutputStream saveStream = new FileOutputStream(saveFile);
-			ObjectOutputStream output = new ObjectOutputStream(saveStream);
-			output.writeObject(pokemonList);
-		}
-	}
-	public void loadPokedex()
-	{
-		
-	}
+	
 	
 	private void changeImageDisplay(String name)
 	{
@@ -196,7 +183,7 @@ public class PokedexPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				app.savePokedex();
+				appController.savePokedex();
 			}
 		});
 		
