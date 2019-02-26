@@ -47,6 +47,7 @@ public class PokedexController
 		pokemonList.add(new Pikachu(1223, "pikachu"));
 		pokemonList.add(new Magikarp(123, "magikarp"));
 		pokemonList.add(new Squirtle(1233424, "squirtle"));
+		pokemonList.add(new MichaelPhelps());
 	}
 	
 	public void updatePokemon(int index, String[] data)

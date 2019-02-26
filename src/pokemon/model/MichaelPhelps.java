@@ -4,7 +4,7 @@ public class MichaelPhelps extends Pokemon  implements Water
 {
 	public MichaelPhelps()
 	{
-		super(23252235, "Phelps");
+		super(23252235, "MichaelPhelps");
 	}
 	
 	public void drownOpponent()
