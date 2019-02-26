@@ -3,14 +3,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import pokemon.controller.PokedexController;
+import java.io.*;
 
 
 public class PokedexPanel extends JPanel
 {
+	private String saveFile = "backup.pokemon";
 	private PokedexController appController;
 	private SpringLayout appLayout;
 	private JButton changeButton;
 	private JComboBox<String> pokedexDropdown;
+	private JButton saveButton;
 	
 	private JTextField numberField;
 	private JTextField nameField;
@@ -87,6 +90,7 @@ public class PokedexPanel extends JPanel
 		
 		this.add(changeButton);
 		this.add(pokedexDropdown);
+		this.add(saveButton);
 		
 		this.add(imageLabel);
 		
@@ -174,6 +178,14 @@ public class PokedexPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				app.savePokedex();
+			}
+		});
+		
 		changeButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
