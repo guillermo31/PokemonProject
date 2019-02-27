@@ -56,8 +56,10 @@ public class PokedexPanel extends JPanel
 		pokedexDropdown = new JComboBox<String>();
 		numberLabel = new JLabel("number");
 		nameLabel = new JLabel("name");
+		appLayout.putConstraint(SpringLayout.EAST, saveButton, 0, SpringLayout.EAST, nameLabel);
 		evolveLabel = new JLabel("evolution");
 		enhanceLabel = new JLabel("enhanced");
+		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 73, SpringLayout.SOUTH, enhanceLabel);
 		healthLabel = new JLabel("health");
 
 		
