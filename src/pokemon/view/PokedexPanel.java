@@ -52,6 +52,7 @@ public class PokedexPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, 188, SpringLayout.SOUTH, attackLabel);
 		appLayout.putConstraint(SpringLayout.EAST, imageLabel, -56, SpringLayout.EAST, numberField);
 		changeButton = new JButton("change pokevalues");
+		saveButton = new JButton("save pokevalues");
 		pokedexDropdown = new JComboBox<String>();
 		numberLabel = new JLabel("number");
 		nameLabel = new JLabel("name");
