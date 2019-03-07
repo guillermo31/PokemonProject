@@ -52,7 +52,7 @@ public class PokedexController
 		pokemonList.add(new Pikachu(1223, "pikachu"));
 		pokemonList.add(new Magikarp(123, "magikarp"));
 		pokemonList.add(new Squirtle(1233424, "squirtle"));
-//		pokemonList.add(new MichaelPhelps());
+		pokemonList.add(new MichaelPhelps());
 	}
 	
 	public void updatePokemon(int index, String[] data)
@@ -65,6 +65,7 @@ public class PokedexController
 			current.setHealthPoints(Integer.parseInt(data[2]));
 			current.setCanEvolve(Boolean.parseBoolean(data[3]));
 			current.setName(data[4]);
+	
 
 		}
 	}
@@ -76,8 +77,8 @@ public class PokedexController
 		data[0] = current.getAttackPoints() + "";
 		data[1] = current.getEnhancementModifier() + "";
 		data[2] = current.getHealthPoints() + "";
-		data[3] = current.getName() + "";
-		data[4] = current.isCanEvolve() + "";
+		data[3] = current.isCanEvolve() + "";
+		data[4] = current.getName() + "";
 		data[5] = current.getNumber() + "";
 		
 		return data;

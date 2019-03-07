@@ -122,7 +122,6 @@ public class PokedexPanel extends JPanel
 			data[2] = healthField.getText();
 			data[3] = evolveField.getText();
 			data[4] = nameField.getText();
-			data[5] = numberField.getText();
 			appController.updatePokemon(index, data);
 		}
 		
